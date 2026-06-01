@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>2012 - O Fim do Mundo</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#020617;
+    color:white;
+    overflow-x:hidden;
+    scroll-behavior: smooth;
+}
+
+/* HEADER COM EFEITO DE TREMOR */
+header{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    position:relative;
+    background:
+    linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.85)),
+    url("https://images.alphacoders.com/624/62489.jpg");
+    background-size:cover;
+    background-attachment:fixed;
+    animation: earthquake 20s infinite alternate;
+}
+
+/* TITULO */
+h1{
+    font-size:clamp(60px,10vw,140px);
+    text-shadow:0 0 30px red;
+    animation:pulse 2s infinite;
+}
+
+.alerta-sub{
+    font-size: 1.2rem;
+    color: #ef4444;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    animation: piscar 1.5s infinite;
+}
+
+@keyframes pulse{
+    50%{transform:scale(1.05);}
+}
+
+@keyframes piscar{
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+@keyframes earthquake {
+    0%, 100% { transform: translate(0, 0); }
+    20% { transform: translate(-2px, 1px); }
+    40% { transform: translate(1px, -1px); }
+    60% { transform: translate(-1px, 2px); }
+    80% { transform: translate(2px, 1px); }
+}
+
+/* BOTAO */
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:15px 30px;
+    background:#38bdf8;
+    border-radius:10px;
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
+}
+.btn:hover{
+    transform:scale(1.1);
+    box-shadow: 0 6px 20px rgba(56, 189, 248, 0.6);
+}
+
+/* METEOROS */
+.meteor{
+    position:absolute;
+    width:300px;
+    height:3px;
+    background:linear-gradient(to right, orange, transparent);
+    transform:rotate(-25deg);
+    animation:meteor 5s linear infinite;
+}
+
+@keyframes meteor{
+    from{transform:translateX(-400px) translateY(0) rotate(-25deg);}
+    to{transform:translateX(2000px) translateY(700px) rotate(-25deg);}
+}
+
+/* CONTAINER */
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:80px 20px;
+}
+
+/* CARDS COM NOVAS ANIMAÇÕES */
+.card{
+    background:#111827;
+    padding:40px;
+    border-radius:15px;
+    margin-bottom:40px;
+    border: 1px solid #1e293b;
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    animation: fadeUp 1s ease-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #38bdf8;
+    box-shadow: 0 10px 30px rgba(56, 189, 248, 0.1);
+}
+
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(40px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+.card h2{
+    color:#38bdf8;
+    margin-bottom:20px;
+    font-size: 1.8rem;
+    position: relative;
+    display: inline-block;
+}
+
+/* GRID DE PERSONAGENS */
+.grid-conteudo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.item-conteudo {
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #38bdf8;
+}
+
+.item-conteudo h4 {
+    color: #38bdf8;
+    margin-bottom: 8px;
+}
+
+/* INFO */
+.info{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:15px;
+    margin:40px 0;
+}
+
+.info-box{
+    background:#1e293b;
+    padding:20px;
+    border-radius:10px;
+    text-align:center;
+    border: 1px solid transparent;
+    transition: 0.3s;
+}
+
+.info-box:hover {
+    border-color: #38bdf8;
+    background: #0f172a;
+}
+
+/* AREA DO TRAILER CONTAINER */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* Proporção 16:9 */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+    border-radius: 15px;
+    border: 2px solid #38bdf8;
+    box-shadow: 0 0 25px rgba(56, 189, 248, 0.2);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* FRASE */
+.frase{
+    text-align:center;
+    padding:60px 20px;
+    background:#0f172a;
+    font-style:italic;
+    border-top: 1px solid #1e293b;
+    border-bottom: 1px solid #1e293b;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:60px 20px;
+    background:black;
+}
+
+footer h2{
+    color:#38bdf8;
+    margin-bottom:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="meteor"></div>
+
+<div>
+<p class="alerta-sub">Aviso de Catástrofe Global</p>
+<h1>2012</h1>
+<p>O fim do mundo está próximo</p>
+<a class="btn" href="#conteudo">Explorar Destruição</a>
+</div>
+
+</header>
+
+<div class="container" id="conteudo">
+
+    <div class="card">
+        <h2>Sinopse Oficial</h2>
+        <p style="line-height: 1.8;">
+            O filme 2012 mostra o colapso total da Terra causado por forças naturais extremas.<br>
+            Terremotos gigantes começam a rasgar continentes inteiros em poucos segundos.<br>
+            Vulcões entram em erupção ao redor do mundo, cobrindo o céu com cinzas mortais.<br>
+            Mega tsunamis avançam destruindo cidades costeiras sem qualquer chance de fuga.<br>
+            Governos tentam esconder a verdade enquanto o caos se espalha globalmente.<br>
+            Um escritor comum descobre a gravidade da situação e tenta salvar sua família.<br>
+            Estradas se quebram, prédios caem e o planeta literalmente se parte ao meio.<br>
+            A humanidade entra em pânico enquanto o nível dos oceanos sobe rapidamente.<br>
+            A única esperança passa a ser uma operação secreta de sobrevivência global.<br>
+            Gigantescas “arcas” são construídas para tentar salvar parte da população.<br>
+            A corrida contra o tempo se torna uma luta entre vida e extinção.<br>
+            Cada segundo perdido significa milhões de vidas em risco imediato.<br>
+            A natureza demonstra força absoluta e imparável contra a civilização.<br>
+            O planeta entra em colapso total sem possibilidade de controle humano.<br>
+            O filme retrata o fim do mundo de forma ébria e destrutiva.
+        </p>
+    </div>
+
+    <div class="info">
+        <div class="info-box"><h3>Gênero</h3><p>Ação / Ficção Científica</p></div>
+        <div class="info-box"><h3>Lançamento</h3><p>2009</p></div>
+        <div class="info-box"><h3>Diretor</h3><p>Roland Emmerich</p></div>
+        <div class="info-box"><h3>Duração</h3><p>2h38</p></div>
+    </div>
+
+    <div class="card">
+        <h2>Núcleo de Sobreviventes</h2>
+        <p>A narrativa acompanha diferentes perspectivas humanas lidando com o iminente fim dos tempos:</p>
+        
+        <div class="grid-conteudo">
+            <div class="item-conteudo">
+                <h4>Jackson Curtis (John Cusack)</h4>
+                <p>Um escritor de ficção científica divorciado e motorista de limusine que faz de tudo para manter seus filhos e ex-esposa a salvo enquanto a Califórnia afunda no oceano.</p>
+            </div>
+            <div class="item-conteudo">
+                <h4>Dr. Adrian Helmsley (Chiwetel Ejiofor)</h4>
+                <p>O conselheiro científico principal do presidente dos EUA que descobre a ameaça geológica e luta pelo lado ético e humanitário da seleção de sobreviventes.</p>
+            </div>
+            <div class="item-conteudo">
+                <h4>Carl Anheuser (Oliver Platt)</h4>
+                <p>O chefe de gabinete da Casa Branca, pragmático e impiedoso, encarregado de liderar a construção secreta das gigantescas Arcas de sobrevivência na China.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>A Ciência por Trás do Apocalipse</h2>
+        <p style="line-height: 1.6; margin-bottom: 15px;">
+            Diferente de outros filmes de desastre que focam em impactos de asteroides ou eras glaciais repentinas, o enredo de 2012 se baseia em um fenômeno de mutação física interna do planeta.
+        </p>
+        <p style="line-height: 1.6;">
+            Uma massiva erupção solar bombardeia a Terra com um fluxo sem precedentes de partículas conhecidas como <strong>neutrinos</strong>. Nesta ficção, essas partículas sofrem mutações e passam a aquecer diretamente o núcleo terrestre, agindo como um forno de micro-ondas gigante. Isso liquefaz o manto interno, causando o deslocamento da crosta terrestre e gerando a série devastadora de terremotos e tsunamis globais.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Impacto Visual e Bilheteria</h2>
+        <p style="line-height: 1.6;">
+            Consagrado como um dos marcos históricos dos efeitos visuais da década de 2000, o longa utilizou engenharia computacional de ponta para simular dinâmicas de fluidos e destruições de malhas estruturais arquitetônicas. Arrecadou mais de 790 milhões de dólares mundialmente, tornando-se um enorme sucesso comercial da Sony Pictures.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2 style="color: #38bdf8;">Trailer Oficial</h2>
+        <p style="margin-bottom: 20px;">Assista à prévia da destruição global no player integrado abaixo:</p>
+        
+        <div class="video-container">
+            <iframe 
+                src="https://www.youtube.com/embed/sFXGrTng0gQ" 
+                title="Trailer Oficial 2012" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
+</div>
+
+<div class="frase">
+    <h2>"Quando o mundo acabar, sobreviver será a única opção."</h2>
+</div>
+
+<footer>
+    <h2>Créditos</h2>
+    <p>Lucas Reis • Moises Xavier • Matheus Duarte • Enzo Clayton • Enzo Cunha • Kaio Lucas • João Wagner</p>
+</footer>
+
+</body>
+</html>
